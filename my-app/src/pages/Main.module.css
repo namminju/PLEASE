@@ -1,0 +1,180 @@
+/* Main.module.css */
+
+.container {
+    width: 100%;
+    height: 100vh;
+ 
+    position: relative; /* 오버레이를 위한 기준 */
+    background-image: url("https://search.pstatic.net/sunny/?src=https%3A%2F%2Fpng.pngtree.com%2Fthumb_back%2Ffw800%2Fbackground%2F20240910%2Fpngtree-celestial-fantasy-awe-inspiring-universe-pc-wallpaper-image_16146468.jpg&type=sc960_832"); /* 배경 이미지 */
+    background-size: cover; /* 배경 이미지 크기 조정 */
+    background-position: center; /* 배경 이미지 위치 조정 */
+    background-attachment: fixed; /* 배경 이미지 고정 */
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden; /* 오버플로우 방지 */   
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+}
+
+.container::before {
+    content: ""; /* 비어 있는 요소 생성 */
+    position: absolute; /* 컨테이너 기준으로 절대 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 80% 검은색 오버레이 */
+    z-index: 1; /* 콘텐츠 위에 표시 */
+}
+
+.container > * {
+    position: relative; /* 콘텐츠를 오버레이 위로 */
+    z-index: 2; /* 오버레이 위에 텍스트 표시 */
+}
+ 
+
+.content {
+    position: relative; /* 오버레이 위에 표시되도록 설정 */
+    z-index: 2; /* 오버레이 위에 표시 */
+    text-align: center;
+}
+
+
+.title{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+}
+
+.white{
+    padding: 10% 5%;
+    display: flex;
+    justify-content: space-between; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    width: 100%;
+    background-color: white;
+    color: black;
+}
+.grey {
+    padding: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #F2F2F2;
+    color: black;
+}
+
+.grey .container {
+    width: 80%;
+    text-align: center;
+}
+
+.grey hr {
+    width: 100%;
+    border-color: purple;
+    border-width: 2px;
+    margin: 1rem 0;
+}
+
+.grey .aboutContents {
+    width: 80%;
+    text-align: left;
+}
+
+.grey .tech-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.grey .tech-section img {
+    width: 30px;
+    margin-right: 1rem;
+}
+
+.grey .tech-section div {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.grey ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.grey ul li {
+    margin-bottom: 0.5rem;
+}
+
+.project {
+    padding: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #00237a;
+    color: white;
+}
+
+
+.aboutContents{
+    text-align: start;
+    margin: 0 10%;
+    font-size: 1rem;
+}
+
+
+
+
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    animation: typing 0.5s forwards;
+  }
+  
+  .letter:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .letter:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .letter:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  /* Continue this pattern for each letter, increasing the delay */
+  
+  @keyframes typing {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .cursor {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    animation: blink 0.7s infinite;
+    /* 커서가 깜빡이는 애니메이션 */
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
