@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Main.module.css"; // Import the CSS module
+import { FaGithub } from "react-icons/fa";
 
 // 타이핑 효과를 위한 컴포넌트
 function TypingEffect({ text, typingSpeed = 100 }) {
@@ -71,11 +72,14 @@ function ProjectSection({ image, title, date, description }) {
             }}
           />
         </div>
-        <div style={{ marginLeft: "1.2rem", fontSize: "1.2rem", flex: 1, width:"50%" }}>
-          <div style={{ fontSize: "2rem", fontWeight: "bold", textAlign:"left", width:"100%" }}>{title}</div>
-          <div style={{ fontSize: "1rem", textAlign:"left"}}>{date}</div>
-          <div style={{  fontSize: "1rem",background:"white", color:"black", borderRadius:'10px', padding:"5% 2%"}}>{description}</div>
-        </div>
+        <div style={{width:"5%"}}></div>
+        <div style={{ marginLeft: "1.2rem", fontSize: "clamp(16px, 1.2vw, 50px)", flex: 1, width: "100%" }}>
+  <div style={{ fontSize: "clamp(32px, 2.4vw, 160px)", fontWeight: "bold", textAlign: "right", width: "100%" }}>{title}</div> {/* 오른쪽 정렬 */}
+  <div style={{ fontSize: "clamp(16px, 1.2vw, 50px)", textAlign: "right", width: "100%" }}>{date}</div> {/* 오른쪽 정렬 */}
+  <div style={{ fontSize: "clamp(16px, 1.2vw, 50px)", background: "white", color: "black", borderRadius: "10px", padding: "10% 5%", margin: "5% 0", width: "90%", textAlign: "left", fontWeight: "normal" }}>{description}</div> {/* 오른쪽 정렬 */}
+</div>
+
+
       </div>
     );
   }
@@ -226,7 +230,7 @@ function Main() {
       <div className={styles.container}>
         <div className={styles.title}>
           <TypingEffect
-            text={`프론트엔드로 새로운 세상을 만드는\n남민주의 Portfolio입니다`}
+            text={`프론트엔드로 새로운 세상을 꿈꾸는\n남민주의 Portfolio 입니다`}
             typingSpeed={100}
           />
         </div>
@@ -234,7 +238,7 @@ function Main() {
           <div style={{ width: "10%", textAlign: "center" }}>
             <div style={{ width: "100%", textAlign: "center" }}>About</div>
             <div>Me</div>
-            <hr style={{ width: "70%", borderColor: "purple", borderWidth: "2px" }} />
+            <hr style={{ width: "100%", borderColor: "purple", borderWidth: "2px" }} />
           </div>
           <div className={styles.aboutContents} style={{ width: "80%" }}>
             <div style={{ fontSize: "1.5rem" }}>꾸준한 개발자</div>
@@ -258,22 +262,79 @@ function Main() {
           </div>
         </div>
         <div className={styles.project}>
-          <div>Project</div>
-          <hr style={{ width: "30%", borderColor: "purple", borderWidth: "2px" }} />
-          <div>
-            {projects.map((project, index) => (
-              <ProjectSection
-                key={index}
-                image={project.image}
-                date={project.date}
-                title={project.title}
-                description={project.description}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+          <div style={{fontSize:"clamp(30px, 3vw, 120px)"}}>Project</div>
+          <hr style={{ width: "30%", borderColor: "skyblue", borderWidth: "2px" }} />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+  {projects.map((project, index) => (
+    <ProjectSection
+      key={index}
+      image={project.image}
+      date={project.date}
+      title={project.title}
+      description={project.description}
+    />
+  ))}
+</div>
+
+</div>
+<div style={{ padding: "5%", backgroundColor: "rgba(0, 0, 0, 0.8)" }}>
+  <div style={{ width: "100%", height:"50vh", textAlign: "center", justifyContent:"center",alignContent:"center",color: "white", fontSize: "1.5em" }}>
+    <div>Thank you</div>
+    <hr style={{ width: "30%", borderColor: "skyblue", borderWidth: "2px", margin: "10px auto" }} />
+  </div>
+  
+
+
+
+  {/* Floating Sidebar */}
+  <div style={{ position: "fixed", right: "20px", bottom: "0%", transform: "translateY(-20%)" }}>
+    <div
+      style={{
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "skyblue",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "white",
+        marginBottom: "10px",
+        cursor: "pointer",
+        fontSize:"40px"
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText("nampink4322@naver.com");
+        alert("이메일이 복사되었습니다.");
+      }}
+    >
+      📧
     </div>
+    <div
+      style={{
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "skyblue",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "white",
+        cursor: "pointer",
+      }}
+    >
+      <a
+        href="https://github.com/namminju"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "white", textDecoration: "none" }}
+      >
+        <FaGithub size={40} />
+      </a>
+    </div>
+  </div>
+</div>
+
+</div></div>
   );
 }
 
